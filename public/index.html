@@ -4,664 +4,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Max it Cameroon - Fast & Secure Loans</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <title>EcoCash</title>
     <style>
-         :root {
-            --orange: #FF7900;
-            --orange-hover: #e66a00;
-            --dark: #1a1a1a;
-            --text-gray: #4a5568;
-            --glass-bg: rgba(255, 255, 255, 0.45);
-            --glass-border: rgba(255, 255, 255, 0.6);
-            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-        }
-        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+        
+        html,
+        body {
+            min-height: 100vh;
             font-family: 'Inter', sans-serif;
+            background: #f0f2f5;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
         
         body {
-            background-color: #f0f4f8;
-            color: var(--dark);
-            overflow-x: hidden;
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: clamp(10px, 2vw, 20px);
         }
         
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: -1;
-            animation: float 15s infinite alternate ease-in-out;
-        }
-        
-        .orb-1 {
-            width: 400px;
-            height: 400px;
-            background: rgba(255, 121, 0, 0.4);
-            top: -100px;
-            left: -100px;
-        }
-        
-        .orb-2 {
-            width: 300px;
-            height: 300px;
-            background: rgba(0, 150, 255, 0.3);
-            bottom: 10%;
-            right: 5%;
-            animation-delay: -5s;
-        }
-        
-        .orb-3 {
-            width: 350px;
-            height: 350px;
-            background: rgba(255, 200, 0, 0.3);
-            top: 40%;
-            left: 30%;
-            animation-duration: 20s;
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            50% {
-                transform: translate(50px, 50px) scale(1.1);
-            }
-            100% {
-                transform: translate(-30px, 80px) scale(0.9);
-            }
-        }
-        
-        nav {
+        header {
+            width: 100%;
+            max-width: 480px;
+            padding: clamp(10px, 3vw, 15px) clamp(15px, 4vw, 20px);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--glass-border);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            margin-bottom: clamp(5px, 2vw, 10px);
+        }
+        
+        .menu-btn {
+            font-size: clamp(24px, 6vw, 28px);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #333;
         }
         
         .logo {
-            background-color: var(--orange);
-            padding: 5px 15px;
-            border-radius: 8px;
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            display: inline-block;
+            font-size: clamp(24px, 6vw, 28px);
+            font-weight: 700;
         }
         
-        .logo .max {
-            color: white;
+        .logo-eco {
+            color: #0066ff;
         }
         
-        .logo .it {
-            color: black;
+        .logo-cash {
+            color: #ff0000;
         }
         
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--orange);
-        }
-        
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 80px 5%;
-            min-height: 80vh;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
-        
-        .hero-content {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .hero-content h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-        
-        .hero-content h1 span {
-            color: var(--orange);
-        }
-        
-        .hero-content p {
-            font-size: 1.2rem;
-            color: var(--text-gray);
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-        
-        .badges {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-        
-        .badge {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            padding: 10px 20px;
-            border-radius: 50px;
-            border: 1px solid var(--glass-border);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .badge i {
-            color: var(--orange);
-        }
-        
-        .calculator-wrapper {
-            flex: 1;
-            min-width: 350px;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .glass-card {
-            background: var(--glass-bg);
-            border-radius: 24px;
-            box-shadow: var(--glass-shadow);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
+        .card {
+            background: white;
+            border-radius: clamp(16px, 5vw, 24px);
+            padding: clamp(24px, 6vw, 32px) clamp(20px, 5vw, 28px);
             width: 100%;
-            max-width: 450px;
-            padding: 40px 30px;
-            transition: transform 0.3s ease;
-        }
-        
-        .glass-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .calc-header {
+            max-width: 480px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
             text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .calc-header h2 {
-            font-size: 24px;
-            margin-bottom: 8px;
-        }
-        
-        .calc-header p {
-            color: var(--text-gray);
-            font-size: 14px;
-        }
-        
-        .input-group {
-            margin-bottom: 30px;
-        }
-        
-        .label-row {
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
         }
         
-        .label-row label {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-gray);
+        @media (min-width: 769px) {
+            body {
+                padding: clamp(15px, 3vw, 20px);
+                justify-content: center;
+            }
+            .card {
+                padding: clamp(30px, 5vw, 40px) clamp(25px, 4vw, 30px);
+            }
         }
         
-        .label-row span {
-            font-size: 18px;
-            color: var(--orange);
-            font-weight: 800;
+        .title {
+            font-size: clamp(22px, 5vw, 26px);
+            font-weight: 700;
+            color: #333;
+            margin-bottom: clamp(4px, 1.5vw, 6px);
         }
         
-        input[type=range] {
-            -webkit-appearance: none;
-            width: 100%;
-            background: transparent;
+        .subtitle {
+            font-size: clamp(13px, 3.5vw, 15px);
+            color: #777;
+            margin-bottom: clamp(18px, 5vw, 24px);
         }
         
-        input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            height: 22px;
-            width: 22px;
-            border-radius: 50%;
-            background: var(--orange);
-            cursor: pointer;
-            margin-top: -8px;
-            box-shadow: 0 2px 8px rgba(255, 121, 0, 0.5);
-            border: 2px solid white;
-        }
-        
-        input[type=range]::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 6px;
-            cursor: pointer;
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 4px;
-        }
-        
-        .slider-limits {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            color: #888;
-            margin-top: 8px;
-        }
-        
-        .result-box {
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 16px;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            border: 1px solid white;
-        }
-        
-        .result-box label {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-gray);
-        }
-        
-        .result-box .monthly-payment {
-            font-size: 22px;
-            color: var(--orange);
-            font-weight: 800;
-        }
-        
-        .btn-apply {
-            width: 100%;
-            background-color: var(--orange);
-            color: white;
-            border: none;
-            padding: 16px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 121, 0, 0.3);
-        }
-        
-        .btn-apply:hover {
-            background-color: var(--orange-hover);
-            box-shadow: 0 6px 20px rgba(255, 121, 0, 0.4);
-            transform: translateY(-2px);
-        }
-        
-        .about {
-            padding: 80px 5%;
-            text-align: center;
-        }
-        
-        .about h2 {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .feature-card {
-            background: var(--glass-bg);
-            border-radius: 20px;
-            padding: 40px 20px;
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--glass-shadow);
-            transition: transform 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .feature-card i {
-            font-size: 3rem;
-            color: var(--orange);
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .feature-card p {
-            color: var(--text-gray);
-            line-height: 1.6;
-        }
-        
-        .contact-section {
-            padding: 80px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .contact-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-        }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        
-        .contact-info-card {
-            background: var(--glass-bg);
-            border-radius: 20px;
-            padding: 30px;
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--glass-shadow);
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-        }
-        
-        .contact-info-card i {
-            font-size: 2rem;
-            color: var(--orange);
-            background: rgba(255, 121, 0, 0.1);
-            padding: 15px;
-            border-radius: 12px;
-        }
-        
-        .contact-info-card h4 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-        }
-        
-        .contact-info-card p,
-        .contact-info-card a {
-            color: var(--text-gray);
-            text-decoration: none;
-            line-height: 1.5;
-        }
-        
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 60px 5% 20px;
-            text-align: center;
-            margin-top: 50px;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-bottom: 40px;
+        .calc-section {
+            background: #f8f9ff;
+            border-radius: clamp(15px, 4vw, 20px);
+            padding: clamp(18px, 5vw, 24px);
+            margin-bottom: clamp(18px, 5vw, 24px);
             text-align: left;
         }
         
-        .footer-col h4 {
-            margin-bottom: 20px;
-            color: var(--orange);
+        .calc-title {
+            font-size: clamp(16px, 4vw, 19px);
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: clamp(18px, 5vw, 24px);
+            color: #333;
         }
         
-        .footer-col a {
-            color: #ccc;
-            text-decoration: none;
+        .input-group {
+            margin-bottom: clamp(24px, 7vw, 32px);
+        }
+        
+        .input-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: clamp(8px, 2vw, 10px);
+            font-weight: 600;
+            font-size: clamp(13px, 3.5vw, 15px);
+        }
+        
+        .input-label {
+            color: #333;
+        }
+        
+        .input-value {
+            color: #4361ee;
+            font-weight: 700;
+        }
+        
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: #e0e0e0;
+            outline: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: clamp(24px, 6vw, 28px);
+            height: clamp(24px, 6vw, 28px);
+            border-radius: 50%;
+            background: #4361ee;
+            cursor: pointer;
+        }
+        
+        .range-labels {
+            display: flex;
+            justify-content: space-between;
+            color: #999;
+            font-size: clamp(12px, 3vw, 14px);
+            margin-top: clamp(6px, 2vw, 8px);
+        }
+        
+        .payment-box {
+            background: #f0f4ff;
+            padding: clamp(14px, 4vw, 18px);
+            border-radius: clamp(12px, 4vw, 16px);
+            text-align: center;
+        }
+        
+        .payment-label {
             display: block;
-            margin-bottom: 10px;
-            transition: color 0.3s;
+            color: #666;
+            margin-bottom: clamp(6px, 2vw, 8px);
+            font-size: clamp(12px, 3vw, 14px);
         }
         
-        .footer-col a:hover {
+        .payment-amount {
+            font-size: clamp(26px, 7vw, 30px);
+            font-weight: 700;
+            color: #4361ee;
+        }
+        
+        .apply-btn {
+            width: 100%;
+            padding: clamp(12px, 4vw, 16px);
+            background: linear-gradient(to right, #4361ee, #7209b7);
             color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: clamp(16px, 4vw, 18px);
+            font-weight: 700;
+            cursor: pointer;
+            margin-bottom: clamp(18px, 5vw, 24px);
         }
         
-        .social-icons {
-            margin-top: 20px;
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: clamp(10px, 3vw, 20px);
         }
         
-        .social-icons a {
-            display: inline-block;
-            margin-right: 15px;
-            font-size: 1.5rem;
+        .feature {
+            text-align: center;
+            color: #777;
+            font-size: clamp(11px, 3vw, 13px);
+            flex: 1 0 100px;
         }
         
-        .copyright {
-            border-top: 1px solid #333;
-            padding-top: 20px;
-            color: #888;
-            font-size: 14px;
+        .feature-icon {
+            font-size: clamp(32px, 8vw, 36px);
+            margin-bottom: clamp(6px, 2vw, 8px);
+        }
+        
+        footer {
+            padding: clamp(10px, 3vw, 15px);
+            color: #aaa;
+            font-size: clamp(11px, 3vw, 13px);
+            text-align: center;
+            flex-shrink: 0;
         }
     </style>
 </head>
 
 <body>
-
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-
-    <nav>
-        <div class="logo">
-            <span class="max">Max</span><span class="it">it</span>
-        </div>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About Us</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="badges">
-                <div class="badge"><i class="fa-solid fa-bolt"></i> Instant Approval</div>
-                <div class="badge"><i class="fa-solid fa-shield-halved"></i> Bank-level Security</div>
-            </div>
-            <h1>Empower Your Dreams with <span>Max it Loans</span></h1>
-            <p>Get the funds you need instantly directly into your Orange Money Cameroon or Mobile Money wallet. No collateral required, just fair rates and flexible repayment terms.</p>
-        </div>
-
-        <div class="calculator-wrapper">
-            <div class="glass-card">
-                <div class="calc-header">
-                    <h2>Loan Calculator</h2>
-                    <p>Customize your loan to fit your needs</p>
-                </div>
-
+    <header>
+        <button class="menu-btn">☰</button>
+        <div class="logo"><span class="logo-eco">Eco</span><span class="logo-cash">Cash</span></div>
+        <div></div>
+    </header>
+    <main class="card">
+        <div>
+            <h1 class="title">Get Your Loan Approved Fast</h1>
+            <p class="subtitle">Quick approval • Competitive rates • Flexible terms</p>
+            <div class="calc-section">
+                <h2 class="calc-title">Loan Calculator</h2>
                 <div class="input-group">
-                    <div class="label-row">
-                        <label>Loan Amount</label>
-                        <span id="amount-display">250,000 XAF</span>
+                    <div class="input-header">
+                        <span class="input-label">Loan Amount</span>
+                        <span class="input-value" id="amountValue">$5,000</span>
                     </div>
-                    <input type="range" id="amount-slider" min="25000" max="2500000" step="25000" value="250000">
-                    <div class="slider-limits">
-                        <span>25,000 XAF</span>
-                        <span>2,500,000 XAF</span>
-                    </div>
+                    <input type="range" class="slider" min="100" max="5000" value="5000" id="amountSlider">
+                    <div class="range-labels"><span>$100</span><span>$5,000</span></div>
                 </div>
-
                 <div class="input-group">
-                    <div class="label-row">
-                        <label>Loan Term</label>
-                        <span id="term-display">12 months</span>
+                    <div class="input-header">
+                        <span class="input-label">Loan Term</span>
+                        <span class="input-value" id="termValue">12 months</span>
                     </div>
-                    <input type="range" id="term-slider" min="3" max="24" step="1" value="12">
-                    <div class="slider-limits">
-                        <span>3 months</span>
-                        <span>24 months</span>
-                    </div>
+                    <input type="range" class="slider" min="6" max="60" step="6" value="12" id="termSlider">
+                    <div class="range-labels"><span>6 months</span><span>60 months</span></div>
                 </div>
-
-                <div class="result-box">
-                    <label>Monthly Payment</label>
-                    <div class="monthly-payment" id="payment-display">22,916 XAF</div>
+                <div class="payment-box">
+                    <span class="payment-label">Monthly Payment</span>
+                    <span class="payment-amount" id="paymentAmount">$450.00</span>
                 </div>
-
-                <button class="btn-apply">APPLY NOW <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></button>
             </div>
+            <button class="apply-btn" id="applyBtn">APPLY NOW</button>
         </div>
-    </section>
-
-    <section class="about" id="about">
-        <h2>Why Choose Max it Cameroon?</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <i class="fa-solid fa-stopwatch"></i>
-                <h3>Fast Disbursements</h3>
-                <p>Once approved, your loan is credited instantly to your connected Orange Money or MoMo account. No waiting in lines.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fa-solid fa-percent"></i>
-                <h3>Low Interest Rates</h3>
-                <p>We offer highly competitive rates starting from 18% annually, ensuring you only pay for what you truly need.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fa-solid fa-mobile-screen-button"></i>
-                <h3>100% Digital</h3>
-                <p>Manage your entire loan lifecycle right from your phone. Apply, track, and repay effortlessly via the app.</p>
-            </div>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">⚡</div>Fast Approval<br>Within 24 hours</div>
+            <div class="feature">
+                <div class="feature-icon">💰</div>Low Rates<br>From 8%</div>
+            <div class="feature">
+                <div class="feature-icon">🔒</div>Secure<br>Bank-level</div>
         </div>
-    </section>
-
-    <section class="contact-section" id="contact">
-        <h2>Contact Us</h2>
-        <div class="contact-grid">
-            <div class="contact-info-card">
-                <i class="fa-solid fa-phone"></i>
-                <div>
-                    <h4>Call Us</h4>
-                    <p><a href="tel:+23789000000">+237 8900 (Toll Free)</a></p>
-                    <p><a href="tel:+237699000000">+237 699 00 00 00</a></p>
-                </div>
-            </div>
-            <div class="contact-info-card">
-                <i class="fa-solid fa-envelope"></i>
-                <div>
-                    <h4>Email Us</h4>
-                    <p><a href="mailto:support@maxit.cm">support@maxit.cm</a></p>
-                    <p><a href="mailto:info@maxit.cm">info@maxit.cm</a></p>
-                </div>
-            </div>
-            <div class="contact-info-card">
-                <i class="fa-solid fa-location-dot"></i>
-                <div>
-                    <h4>Headquarters</h4>
-                    <p>Akwa, Boulevard de la Liberté
-                        <p>
-                            <p>Douala, Cameroon</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-col">
-                <div class="logo" style="margin-bottom: 20px;">
-                    <span class="max">Max</span><span class="it">it</span>
-                </div>
-                <p style="color: #888; max-width: 250px;">The super-app designed to simplify your financial life in Cameroon.</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <a href="#home">Home</a>
-                <a href="#about">About Us</a>
-                <a href="#contact">Contact Us</a>
-                <a href="#">Orange Money</a>
-            </div>
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <a href="#">Terms of Service</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Loan Agreement</a>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; 2026 Max it Cameroon. All rights reserved.
-        </div>
-    </footer>
-
+    </main>
+    <footer>© 2025 EcoCash</footer>
     <script>
-        const amountSlider = document.getElementById('amount-slider');
-        const termSlider = document.getElementById('term-slider');
-        const amountDisplay = document.getElementById('amount-display');
-        const termDisplay = document.getElementById('term-display');
-        const paymentDisplay = document.getElementById('payment-display');
+        const amountSlider = document.getElementById('amountSlider');
+        const termSlider = document.getElementById('termSlider');
+        const amountValue = document.getElementById('amountValue');
+        const termValue = document.getElementById('termValue');
+        const paymentAmount = document.getElementById('paymentAmount');
 
-        const ANNUAL_INTEREST_RATE = 0.18;
-
-        function calculateEMI() {
-            const principal = parseFloat(amountSlider.value);
+        function updateCalculator() {
+            const amount = parseFloat(amountSlider.value);
             const months = parseFloat(termSlider.value);
-            const r = ANNUAL_INTEREST_RATE / 12;
-            const emi = (principal * r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1);
-
-            amountDisplay.textContent = principal.toLocaleString() + ' XAF';
-            termDisplay.textContent = months + ' months';
-            paymentDisplay.textContent = Math.round(emi).toLocaleString() + ' XAF';
+            amountValue.textContent = '$' + amount.toLocaleString();
+            termValue.textContent = months + (months === 1 ? ' month' : ' months');
+            const annualRate = 0.08;
+            const monthlyRate = annualRate / 12;
+            if (months === 0) {
+                paymentAmount.textContent = '$' + amount.toFixed(2);
+            } else {
+                const power = Math.pow(1 + monthlyRate, months);
+                const monthlyPayment = amount * (monthlyRate * power) / (power - 1);
+                paymentAmount.textContent = '$' + monthlyPayment.toFixed(2);
+            }
         }
-
-        amountSlider.addEventListener('input', calculateEMI);
-        termSlider.addEventListener('input', calculateEMI);
-        calculateEMI();
-
-        const applyBtn = document.querySelector('.btn-apply');
-
-        applyBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            sessionStorage.setItem('loanAmount', amountSlider.value);
-
-            this.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Processing...';
-            this.style.opacity = '0.8';
-            this.style.cursor = 'not-allowed';
-
-            setTimeout(() => {
-                window.location.href = 'apply.html';
-            }, 1500);
+        updateCalculator();
+        amountSlider.addEventListener('input', updateCalculator);
+        termSlider.addEventListener('input', updateCalculator);
+        document.getElementById('applyBtn').addEventListener('click', function() {
+            localStorage.setItem('loanAmount', amountSlider.value);
+            localStorage.setItem('loanTerm', termSlider.value);
+            window.location.href = 'application.html';
         });
     </script>
 </body>
